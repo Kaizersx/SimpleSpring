@@ -7,6 +7,8 @@ import simpletest.Interfaces.Robot;
 
 public class ModelT1000 implements Robot {
 
+    //properties of bean
+
     private Hand hand;
     private Head head;
     private Leg leg;
@@ -23,8 +25,32 @@ public class ModelT1000 implements Robot {
         this.leg = leg;
     }
 
+    public Hand getHand() {
+        return hand;
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public Head getHead() {
+        return head;
+    }
+
+    public void setHead(Head head) {
+        this.head = head;
+    }
+
+    public Leg getLeg() {
+        return leg;
+    }
+
+    public void setLeg(Leg leg) {
+        this.leg = leg;
+    }
+
     @Override
-    public void fire() {
+    public void action() {
 
         hand.catchSomething();
         head.calc();

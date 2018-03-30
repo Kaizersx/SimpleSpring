@@ -5,11 +5,11 @@
 
 
     <bean id="t1000" class="simpletest.Robot.ModelT1000">
-       <!-- <constructor-arg  ref="sonyHand"/>
+        <constructor-arg  ref="handHonda"/>
         <constructor-arg  ref="mitsuHead"/>
-        <constructor-arg  ref="legHonda"/>-->
+        <constructor-arg  ref="legHonda"/>
 
-        <property name="hand" ref="sonyHand"/>
+       <!-- <property name="hand" ref="sonyHand"/>-->
         <property name="head" ref="sonyHead"/>
         <property name="leg" ref="sonyLeg"/>
 
