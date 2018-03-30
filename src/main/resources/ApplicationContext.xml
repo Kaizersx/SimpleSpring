@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="t1000" class="simpletest.Robot.ModelT1000"/>
+
+
+    <bean id="sonyHead" class="simpletest.SonyFactory.SonyHead"/>
+    <bean id="sonyHand" class="simpletest.SonyFactory.SonyHand"/>
+    <bean id="sonyLeg" class="simpletest.SonyFactory.SonyLeg"/>
+
+    <bean id="mitsuHand" class="simpletest.Mitsubishi.MitsuHand"/>
+    <bean id="mitsuHead" class="simpletest.Mitsubishi.MitsuHead"/>
+    <bean id="mitsuLeg" class="simpletest.Mitsubishi.MitsuLeg"/>
+
+
+    <bean id="handHonda" class="simpletest.Honda.HandHonda"/>
+    <bean id="headHonda" class="simpletest.Honda.HeadHonda"/>
+    <bean id="legHonda" class="simpletest.Honda.LegHonda"/>
+
+
+</beans>
