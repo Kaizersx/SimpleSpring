@@ -1,19 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Это укороченный вариант сетеров (property) с помошью xmlns:p="http://www.springframework.org/schema/p" -->
+    <bean id="t1000" class="simpletest.Robot.ModelT1000"
 
-    <bean id="t1000" class="simpletest.Robot.ModelT1000">
-        <constructor-arg  ref="handHonda"/>
-        <constructor-arg  ref="mitsuHead"/>
-        <constructor-arg  ref="legHonda"/>
+          p:hand-ref="mitsuHand"
+          p:leg-ref="sonyLeg"
+          p:head-ref="headHonda"
+>
 
-       <!-- <property name="hand" ref="sonyHand"/>-->
+        <!--Для укзаания порядка параметров нужно укзывать индекс,
+        а для яваного указывания типа указывать тип, чтобы не было путаницы.
+        Контейнер сам определяет какой конструктор применим для конкретных параметров-->
+        <constructor-arg  value="silver" index="0" type="java.lang.String"/>
+        <constructor-arg  value="2006" index="1" type="int"/>
+        <constructor-arg  value="true" index="2" type="boolean"/>
+
+        <!--<property name="hand" ref="sonyHand"/>
+        <property name="head" ref="sonyHead"/>
+        <property name="leg" ref="sonyLeg"/>-->
+
+    </bean>
+
+
+    <bean id="t1000empty" class="simpletest.Robot.ModelT1000">
+
+        <property name="hand" ref="sonyHand"/>
         <property name="head" ref="sonyHead"/>
         <property name="leg" ref="sonyLeg"/>
 
     </bean>
+    <bean id="t1000v2" class="simpletest.Robot.ModelT1000">
+
+        <property name="hand" ref="handHonda"/>
+        <property name="head" ref="mitsuHead"/>
+        <property name="leg" ref="sonyLeg"/>
+        <property name="year" value="1987"/>
+        <property name="color" value="red"/>
+        <property name="soundEnabled" value="true"/>
+
+    </bean>
+
 
 
     <bean id="sonyHead" class="simpletest.SonyFactory.SonyHead"/>
