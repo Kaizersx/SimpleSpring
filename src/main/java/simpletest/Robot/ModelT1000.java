@@ -1,11 +1,15 @@
 package simpletest.Robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import simpletest.Interfaces.Hand;
 import simpletest.Interfaces.Head;
 import simpletest.Interfaces.Leg;
 import simpletest.Interfaces.Robot;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot, InitializingBean,DisposableBean {
+
+
 
     //properties of bean
 
@@ -91,6 +95,24 @@ public class ModelT1000 implements Robot {
 
     public void setSoundEnabled(boolean soundEnabled) {
         this.soundEnabled = soundEnabled;
+    }
+
+    public  void initi(){
+        System.out.println("init");
+    }
+    public  void destroying(){
+        System.out.println("destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("afterProperty method");
+
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("destroy method");
     }
 
     @Override

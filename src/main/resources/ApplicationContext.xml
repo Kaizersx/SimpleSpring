@@ -2,17 +2,23 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true"
+
+
+>
 
     <!--Это укороченный вариант сетеров (property) с помошью xmlns:p="http://www.springframework.org/schema/p" -->
     <bean id="t1000" class="simpletest.Robot.ModelT1000"
 
-          p:hand-ref="mitsuHand"
+          p:hand-ref="mitsuHand"  scope="prototype"
           p:leg-ref="sonyLeg"
           p:head-ref="headHonda"
->
 
-        <!--Для укзаания порядка параметров нужно укзывать индекс,
+
+    >
+
+        <!--Для указания порядка параметров нужно укзывать индекс,
         а для яваного указывания типа указывать тип, чтобы не было путаницы.
         Контейнер сам определяет какой конструктор применим для конкретных параметров-->
         <constructor-arg  value="silver" index="0" type="java.lang.String"/>
@@ -25,6 +31,7 @@
 
     </bean>
 
+    <bean class="simpletest.Main.MyBeanPostProcessor"/>
 
     <bean id="t1000empty" class="simpletest.Robot.ModelT1000">
 
@@ -46,12 +53,12 @@
 
 
 
-    <bean id="sonyHead" class="simpletest.SonyFactory.SonyHead"/>
-    <bean id="sonyHand" class="simpletest.SonyFactory.SonyHand"/>
-    <bean id="sonyLeg" class="simpletest.SonyFactory.SonyLeg"/>
+    <bean id="sonyHead" class="simpletest.Sony.SonyHead"/>
+    <bean id="sonyHand" class="simpletest.Sony.SonyHand" />
+    <bean id="sonyLeg" class="simpletest.Sony.SonyLeg"/>
 
     <bean id="mitsuHand" class="simpletest.Mitsubishi.MitsuHand"/>
-    <bean id="mitsuHead" class="simpletest.Mitsubishi.MitsuHead"/>
+    <bean id="mitsuHead" class="simpletest.Mitsubishi.MitsuHead" />
     <bean id="mitsuLeg" class="simpletest.Mitsubishi.MitsuLeg"/>
 
 

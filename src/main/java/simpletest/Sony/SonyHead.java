@@ -1,4 +1,4 @@
-package simpletest.SonyFactory;
+package simpletest.Sony;
 
 import simpletest.Interfaces.Head;
 

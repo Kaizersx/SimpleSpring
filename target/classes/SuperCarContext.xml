@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+
+>
+
+    <bean id="SC" class="CarsBuilder.Main.SuperCar"
+
+          p:interior-ref="AudiSportInterior"
+          p:motor-ref="BMWSportMotor"
+          p:tires-ref="MercedesSportTires"
+          p:name="VAsper"
+    />
+
+    <bean class="simpletest.Main.MyBeanPostProcessor"/>
+
+    <bean id="AudiSportInterior" class="CarsBuilder.CarBrands.Sport_Cars.AudiSportInterior"/>
+    <bean id="MercedesSportTires" class="CarsBuilder.CarBrands.Sport_Cars.MercedesSportTires"/>
+    <bean id="BMWSportMotor" class="CarsBuilder.CarBrands.Sport_Cars.BMWSportMotor"/>
+</beans>
