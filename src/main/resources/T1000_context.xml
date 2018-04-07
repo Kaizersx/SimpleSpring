@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-default-lazy-init="true"
+       default-lazy-init="true"
 >
 
     <import resource="Mitsubishi.xml"/>
@@ -11,23 +11,29 @@ default-lazy-init="true"
     <import resource="Database.xml"/>
 
     <bean id="t1000" class="simpletest.Robot.ModelT1000"
-
-          p:hand-ref="mitsuHand"  scope="prototype"
-          p:leg-ref="sonyLeg"
-          p:head-ref="sonyHead"
+          parent="baseBean1"
+          scope="prototype"
     >
-        <constructor-arg  value="silver" index="0" type="java.lang.String"/>
-        <constructor-arg  value="2006" index="1" type="int"/>
-        <constructor-arg  value="true" index="2" type="boolean"/>
+        <constructor-arg  value="silver" index="3" type="java.lang.String"/>
+        <constructor-arg  value="2006" index="4" type="int"/>
+        <constructor-arg  value="true" index="5" type="boolean"/>
     </bean>
 
-    <bean class="simpletest.Main.MyBeanPostProcessor"/>
 
-    <bean id="t1000empty" class="simpletest.Robot.ModelT1000" depends-on="databaseBean">
+    <bean id="baseBean1" abstract="true" >
 
-        <property name="hand" ref="sonyHand"/>
-        <property name="head" ref="sonyHead"/>
-        <property name="leg" ref="sonyLeg"/>
+        <constructor-arg ref="sonyHand" />
+        <constructor-arg ref="sonyHead"/>
+        <constructor-arg ref="sonyLeg"/>
+
+    </bean>
+
+
+    <bean id="t1000empty" class="simpletest.Robot.ModelT1000" scope="prototype" parent="baseBean1">
+
+        <constructor-arg  value="silverEMPTY" index="3" type="java.lang.String"/>
+        <constructor-arg  value="2006" index="4" type="int"/>
+        <constructor-arg  value="true" index="5" type="boolean"/>
 
     </bean>
 

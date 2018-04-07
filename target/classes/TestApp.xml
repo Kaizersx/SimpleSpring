@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
+
+    <import resource="HondaApp.xml"/>
+    <import resource="Sonyapp.xml"/>
+
+    <bean id="baseBeanSony" abstract="true" >
+
+        <constructor-arg ref="handSony"/>
+        <constructor-arg ref="headSony"/>
+        <constructor-arg ref="legSony"/>
+
+    </bean>
+
+    <bean id="baseBeanHonda" abstract="true">
+        <constructor-arg ref="handHonda"/>
+        <constructor-arg ref="headHonda"/>
+        <constructor-arg ref="legHonda"/>
+
+
+    </bean>
+
+    <bean id="t1000Property" class="simpletest.Robot.ModelT1000" abstract="true"
+          p:color="Green"
+          p:year="1988"
+          p:soundEnabled="true"
+    />
+
+    <bean id="t1000Const" class="simpletest.Robot.ModelT1000" abstract="true">
+
+        <constructor-arg value="Blue" index="3"/>
+        <constructor-arg value="2008" index="4"/>
+        <constructor-arg value="true" index="5"/>
+
+    </bean>
+
+
+
+</beans>

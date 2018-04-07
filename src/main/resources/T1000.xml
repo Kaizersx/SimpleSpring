@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true"
+>
+
+    <import resource="TestApp.xml"/>
+
+
+    <bean id="t1000" class="simpletest.Robot.ModelT1000" parent="t1000Const">
+
+        <constructor-arg ref="legHonda" index="2" />
+        <constructor-arg ref="headHonda"  index="1"/>
+        <constructor-arg ref="handHonda" index="0" />
+
+
+    </bean>
+
+<bean class="simpletest.Main.MyBeanPostProcessor"/>
+
+    <!--   <bean id="baseBean2" abstract="true">
+
+           <constructor-arg ref="handSony"/>
+           <constructor-arg ref="headSony"/>
+           <constructor-arg ref="legSony"/>
+       </bean>-->
+
+</beans>

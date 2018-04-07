@@ -7,5 +7,6 @@ public class HeadHonda implements Head {
     @Override
     public void calc() {
         System.out.println("calc by Honda");
+
     }
 }

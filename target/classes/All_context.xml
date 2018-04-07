@@ -2,8 +2,26 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+default-lazy-init="true"
 >
 
     <import resource="T1000_context.xml"/>
+
+    <bean class="simpletest.Main.MyBeanPostProcessor"/>
+
+    <bean id="t1000Conveyor" class="simpletest.RobotConveyr.T1000Conveyr">
+
+        <lookup-method name="createRobot" bean="t1000"/>
+
+    </bean>
+
+
+    <bean id="t1000Conveyor2" class="simpletest.RobotConveyr.T1000Conveyr">
+
+        <lookup-method name="createRobot" bean="t1000empty"/>
+
+    </bean>
+
+
 
 </beans>

@@ -7,8 +7,24 @@ import simpletest.Interfaces.Head;
 import simpletest.Interfaces.Leg;
 import simpletest.Interfaces.Robot;
 
-public class ModelT1000 implements Robot, InitializingBean,DisposableBean {
 
+
+
+public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
+
+
+    @Override
+    public void destroy() throws Exception {
+
+        System.out.println("destroy interface");
+
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+
+        System.out.println("init interface");
+    }
 
 
     //properties of bean
@@ -64,6 +80,7 @@ public class ModelT1000 implements Robot, InitializingBean,DisposableBean {
     public void setHead(Head head) {
         this.head = head;
     }
+    
 
     public Leg getLeg() {
         return leg;
@@ -97,22 +114,13 @@ public class ModelT1000 implements Robot, InitializingBean,DisposableBean {
         this.soundEnabled = soundEnabled;
     }
 
-    public  void initi(){
-        System.out.println("init");
-    }
-    public  void destroying(){
-        System.out.println("destroy");
+
+    public  void destroyObject(){
+        System.out.println("destroy object!");
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        System.out.println("afterProperty method");
-
-    }
-
-    @Override
-    public void destroy() throws Exception {
-        System.out.println("destroy method");
+    public  void initObject(){
+        System.out.println("init object");
     }
 
     @Override
