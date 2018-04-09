@@ -32,7 +32,7 @@
     <bean id="t1000empty" class="simpletest.Robot.ModelT1000" scope="prototype" parent="baseBean1">
 
         <constructor-arg  value="silverEMPTY" index="3" type="java.lang.String"/>
-        <constructor-arg  value="2006" index="4" type="int"/>
+        <constructor-arg  value="2017" index="4" type="int"/>
         <constructor-arg  value="true" index="5" type="boolean"/>
 
     </bean>

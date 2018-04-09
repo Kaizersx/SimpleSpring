@@ -2,12 +2,68 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-default-lazy-init="true"
+       default-lazy-init="true"
 >
 
     <import resource="T1000_context.xml"/>
-
     <bean class="simpletest.Main.MyBeanPostProcessor"/>
+
+    <bean id="t1000Pool" class="simpletest.Robot.T1000Pool">
+
+
+        <constructor-arg name="robotCollection">
+
+            <map>
+
+                <entry key="2006" value-ref="t1000"/>
+                <entry key="2017" value-ref="t1000empty"/>
+                <entry key="2008">
+
+                    <bean class="simpletest.Robot.ModelT1000" parent="baseBean1">
+
+                        <constructor-arg value="gold" index="3" type="java.lang.String"/>
+                        <constructor-arg value="2008" index="4" type="int"/>
+                        <constructor-arg value="false"/>
+
+
+                    </bean>
+
+                </entry>
+
+            </map>
+
+
+        </constructor-arg>
+
+
+        <!--<property name="robotCollection">-->
+
+        <!--<map>-->
+        <!--<entry key="2017" value-ref="t1000empty"/>-->
+        <!--<entry key="2006" value-ref="t1000"/>-->
+
+        <!--</map>-->
+
+
+
+        <!--&lt;!&ndash; <null/> это вариант передачи пустого значения  &ndash;&gt;-->
+        <!--&lt;!&ndash;  <list>-->
+        <!--<ref bean="t1000"/>-->
+
+        <!--<bean class="simpletest.Robot.ModelT1000"-->
+        <!--parent="baseBean1"-->
+        <!--scope="prototype">-->
+        <!--<constructor-arg value="gold" index="3" type="java.lang.String"/>-->
+        <!--<constructor-arg value="2007" index="4" type="int"/>-->
+        <!--<constructor-arg value="false" index="5" type="boolean"/>-->
+
+        <!--</bean>-->
+        <!--</list>&ndash;&gt;-->
+        <!--</property>-->
+
+
+
+    </bean>
 
     <bean id="t1000Conveyor" class="simpletest.RobotConveyr.T1000Conveyr">
 
