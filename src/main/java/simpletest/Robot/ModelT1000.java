@@ -7,10 +7,12 @@ import simpletest.Interfaces.Head;
 import simpletest.Interfaces.Leg;
 import simpletest.Interfaces.Robot;
 
-
+import java.util.Properties;
 
 
 public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
+
+
 
 
     @Override
@@ -132,7 +134,7 @@ public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
 
         System.out.println("color: " + color);
         System.out.println("year: "+year);
-        System.out.println("can play sound: "+ soundEnabled);
+        System.out.println("can play sound: "+ soundEnabled+" \n");
     }
 
     @Override
