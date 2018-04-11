@@ -1,7 +1,10 @@
 package simpletest.Mitsubishi;
 
+import org.springframework.stereotype.Component;
 import simpletest.Interfaces.Leg;
 
+
+@Component
 public class MitsuLeg implements Leg {
 
     @Override

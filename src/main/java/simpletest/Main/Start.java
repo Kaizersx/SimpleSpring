@@ -15,21 +15,13 @@ public class Start {
         ApplicationContext context = new ClassPathXmlApplicationContext("All_context.xml");
 
 
-//        RobotConveyor t1000Conveyor=(RobotConveyor)context.getBean("t1000Conveyor");
-//        RobotConveyor t1000Conveyor2=(RobotConveyor)context.getBean("t1000Conveyor2");
-//
-//        Robot terminator1= t1000Conveyor.createRobot();
-//        Robot terminator2= t1000Conveyor2.createRobot();
-//
-//
-//        terminator1.action();
-//        terminator2.action();
 
-        T1000Pool t1000Pool=(T1000Pool)context.getBean("t1000Pool");
+        ModelT1000 modelT1000 =(ModelT1000) context.getBean("model1");
+        ModelT1000 modelT10002 =(ModelT1000) context.getBean("model2");
+        modelT1000.action();
+        modelT10002.action();
 
-        t1000Pool.action();
-
-    }
+         }
 
 }
 
