@@ -1,14 +1,17 @@
 package simpletest.Robot;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import simpletest.Interfaces.Hand;
 import simpletest.Interfaces.Head;
 import simpletest.Interfaces.Leg;
 import simpletest.Interfaces.Robot;
 
 public abstract class BaseModel implements Robot {
-
+    @Autowired
     private Hand hand;
+    @Autowired
     private Leg leg;
+    @Autowired
     private Head head;
 
     public BaseModel() {
